@@ -66,7 +66,7 @@ corr_ss <- function(z1,z2,K1,K2,K12,n1,n2,Z1=NULL,Z2=NULL,group=NULL){
 
   h12 <- c3/S3
 
-  rho <- h12/sqrt(h1*h2)
+  rho <- h12/sqrt(abs(h1*h2))
 
   if(is.null(group)){
     # compute standard error by Jackknife
