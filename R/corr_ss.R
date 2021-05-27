@@ -3,7 +3,7 @@ corr_ss <- function(z1,z2,K1,K2,K12,n1,n2,Z1=NULL,Z2=NULL,group=NULL){
   m2 <- nrow(K2)
   p <- length(z1)
   ngroup <- length(unique(group))
-  print('new one!!!! be careful')
+  print('new one!!!! be careful second time yayaya')
   # calculate h1^2 for y1
   if(is.null(Z1)){
     Z1 <- matrix(1,m1,1)
