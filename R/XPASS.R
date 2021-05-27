@@ -300,8 +300,6 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
   cat(sum(ind1)," SNPs have different minor alleles in population 1, z-scores are corrected according to reference panel.\n",sep = "")
   cat(sum(ind2)," SNPs have different minor alleles in population 2, z-scores are corrected according to reference panel.\n",sep = "")
                     
-  write.table(X1,file=paste0(file_out,"_X1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
-  write.table(X2,file=paste0(file_out,"_X2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
   write.table(K1,file=paste0(file_out,"_K1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
   write.table(K2,file=paste0(file_out,"_K2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
   #write.table(K12,file=paste0(file_out,"_PosteriorMean.txt"),col.names = T,row.names = F,quote=F,sep="\t")
@@ -346,6 +344,10 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
   cat("Calculate PVE...\n")
   isfe1 <- snps_info$V2%in%snps_fe1
   isfe2 <- snps_info$V2%in%snps_fe2
+  write.table(snps_info$V2,file=paste0(file_out,"_snpsinfov2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(snps_fe1,file=paste0(file_out,"_snpsfe1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(isfe1,file=paste0(file_out,"_isfe1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(isfe2,file=paste0(file_out,"_isfe2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
   # isre <- !(isfe1|isfe2)
   # fit <- corr_ss(z_score1[isre],z_score2[isre],K1,K2,K12,zf1$N[isre],zf2$N[isre],Z1=cbind(cov1,X1[,isfe1]),Z2=cbind(cov2,X2[,isfe2]),group = group)
   # fit <- corr_ss(z_score1,z_score2,K1,K2,K12,zf1$N,zf2$N,Z1=cbind(cov1,X1[,isfe1]),Z2=cbind(cov2,X2[,isfe2]),group = group)
