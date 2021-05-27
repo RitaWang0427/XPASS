@@ -81,7 +81,7 @@ corr_ss <- function(z1,z2,K1,K2,K12,n1,n2,Z1=NULL,Z2=NULL,group=NULL){
     c3_jf <- (sum(zz12)-zz12)/(p-1)
     var_h12 <- var(c3_jf)/S3/S3*(p-1)
 
-    var_rho <- var(c3_jf/sqrt(c1_jf*c2_jf)) * S1*S2/S3/S3 * (p-1)
+    var_rho <- var(c3_jf/sqrt(abs(c1_jf*c2_jf))) * S1*S2/S3/S3 * (p-1)
   } else{
     # zj <- sapply(1:ngroup,function(j){
     #
@@ -107,7 +107,7 @@ corr_ss <- function(z1,z2,K1,K2,K12,n1,n2,Z1=NULL,Z2=NULL,group=NULL){
     c3_jf <- (sum(zz12)-zj[3,])/(p-zj[4,])
     var_h12 <- var(c3_jf)/S3/S3*(ngroup-1)
 
-    var_rho <- var(c3_jf/sqrt(c1_jf*c2_jf)) * S1*S2/S3/S3 * (ngroup-1)
+    var_rho <- var(c3_jf/sqrt(abs(c1_jf*c2_jf))) * S1*S2/S3/S3 * (ngroup-1)
   }
 
   H <- matrix(0,2,4)
