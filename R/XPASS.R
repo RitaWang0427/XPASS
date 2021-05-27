@@ -170,7 +170,7 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
       X2 <- X2[,idx_ref2]
     }
   }
-
+  print(X1)
 
   # calculate kinship matrix if needed
   if(is.null(K1)&is.null(K2)){
