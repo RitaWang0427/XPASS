@@ -211,6 +211,8 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
     # X2sd <- apply(X2,2,sd)
     # X2 <- scale(X2)/sqrt(ncol(X2))
     # K2 <- X2%*%t(X2)
+    print(X1)                                                         
+                                                              
 
     tmp1 <- scaleC(X1)
     X1sd <- c(tmp1$Xs)
