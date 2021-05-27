@@ -210,8 +210,7 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
     # K1 <- X1%*%t(X1)
     # X2sd <- apply(X2,2,sd)
     # X2 <- scale(X2)/sqrt(ncol(X2))
-    # K2 <- X2%*%t(X2)
-    print(X1)                                                         
+    # K2 <- X2%*%t(X2)                                                        
                                                               
 
     tmp1 <- scaleC(X1)
@@ -300,6 +299,12 @@ XPASS <- function(file_z1,file_z2,file_ref1,file_ref2=NULL,file_cov1=NULL,file_c
   z_score2[ind2] <- -z_score2[ind2]
   cat(sum(ind1)," SNPs have different minor alleles in population 1, z-scores are corrected according to reference panel.\n",sep = "")
   cat(sum(ind2)," SNPs have different minor alleles in population 2, z-scores are corrected according to reference panel.\n",sep = "")
+                    
+  write.table(X1,file=paste0(file_out,"_X1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(X2,file=paste0(file_out,"_X2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(K1,file=paste0(file_out,"_K1.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  write.table(K2,file=paste0(file_out,"_K2.txt"),col.names = T,row.names = F,quote=F,sep="\t")
+  #write.table(K12,file=paste0(file_out,"_PosteriorMean.txt"),col.names = T,row.names = F,quote=F,sep="\t")
 
   if(sd_method=="LD_block"|compPosMean){
     cat("Assigning SNPs to LD Blocks...\n")
